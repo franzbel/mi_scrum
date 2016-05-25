@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - mi_scrum_development@localhost" uuid="7d8cd5b7-a598-42ec-b3a9-6ba54c4be7e1">
+    <database-info product="PostgreSQL" version="9.3.11" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.5">
+      <database id="1" name="mi_scrum_development"/>
+      <schema id="2" parent="1" name="public">
+        <object-id>2200</object-id>
+        <comment>standard public schema</comment>
+        <introspection-state-number>1126</introspection-state-number>
+        <introspection-timestamp>2016-05-25.18:21:54.448</introspection-timestamp>
+      </schema>
+      <sequence id="3" parent="2" name="user_stories_id_seq">
+        <object-id>42390</object-id>
+        <state-number>1126</state-number>
+      </sequence>
+      <table id="4" parent="2" name="schema_migrations">
+        <object-id>42383</object-id>
+        <state-number>1124</state-number>
+      </table>
+      <table id="5" parent="2" name="user_stories">
+        <object-id>42392</object-id>
+        <state-number>1126</state-number>
+      </table>
+      <column id="6" parent="4" name="version">
+        <state-number>1124</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar</data-type>
+      </column>
+      <index id="7" parent="4" name="unique_schema_migrations">
+        <object-id>42389</object-id>
+        <columns>version</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <column id="8" parent="5" name="id">
+        <state-number>1126</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;user_stories_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="9" parent="5" name="title">
+        <state-number>1126</state-number>
+        <data-type>varchar</data-type>
+      </column>
+      <column id="10" parent="5" name="content">
+        <state-number>1126</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="11" parent="5" name="created_at">
+        <state-number>1126</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="12" parent="5" name="updated_at">
+        <state-number>1126</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="13" parent="5" name="user_stories_pkey">
+        <object-id>42399</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="14" parent="5" name="user_stories_pkey">
+        <columns>id</columns>
+        <underlying-index>user_stories_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
