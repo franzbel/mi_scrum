@@ -1,0 +1,38 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li class="active">Productos</li>
+  </ol>
+  <p id="notice"><%= notice %></p>
+
+  <h1>LISTA DE PROYECTOS</h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+      <th>Product backlog</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= link_to 'Mostrar', product %></td>
+          <td><%= link_to 'Editar', edit_product_path(product) %></td>
+          <td><%= link_to 'eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Product Backlog', product_user_stories_path(product) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Nuevo producto', new_product_path %>
+
+</div>
+

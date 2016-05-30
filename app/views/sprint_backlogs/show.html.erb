@@ -1,0 +1,21 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li><%= link_to 'Product Backlog', product_user_stories_path(@product) %></li>
+    <li class="active">Sprints</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-3">
+      <p><%= @sprint_backlog.title %></p>
+      <p><%= @sprint_backlog.description %></p>
+    </div>
+    <div class="col-md-3">
+      <p>SPRINT BACKLOG</p>
+      <% @sprint_backlog.user_stories.each_with_index  do |user_story, index| %>
+          <p><%= index + 1 %>.-<%= user_story.title %></p>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'Editar', edit_product_sprint_backlog_path(@product.id, @sprint_backlog.id) %> |
+  <%= link_to 'Lista de Sprints', product_sprint_backlogs_path(@product.id) %>
+</div>

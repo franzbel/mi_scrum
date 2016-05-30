@@ -1,1 +1,33 @@
-como es desde new?
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li class="active">Product Backlog</li>
+  </ol>
+  <%= form_for [@product, @user_story] do |f| %>
+     <div class="row">
+       <div class="col-md-4">
+         <p>HISTORIAS</p>
+         <div class="form-group">
+           <%= f.label :title %>
+           <%= f.text_field :title, class: 'form-control' %>
+         </div>
+         <div class="form-group">
+           <%= f.label :content %>
+           <%= f.text_area :content, class: 'form-control', rows: '8' %>
+         </div>
+       </div>
+       <div class="col-md-4">
+         <p>CRITERIOS DE ACEPTACIÓN</p>
+         <%= f.fields_for :acceptances do |acceptance_form| %>
+           <div class="form-group">
+             <%= acceptance_form.label :criterion %>
+             <%= acceptance_form.text_area :criterion, class: 'form-control' %>
+           </div>
+         <% end %>
+       </div>
+       <div class="col-md-4"></div>
+     </div>
+     <%= f.submit 'Guardar' %>
+  <% end %>
+  <%= link_to 'Lista de historias', product_user_stories_path %>
+</div>

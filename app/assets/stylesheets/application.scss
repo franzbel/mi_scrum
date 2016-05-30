@@ -1,2 +1,74 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+mark{
+  color: green;
+}
+.user-story-title, .user-story-criteria{
+  color: #730E15;
+  margin-top: 18px;
+}
+.sprint-panel{
+  height: 45px;
+  text-align: center;
+  padding-top: 15px;
+  background-color: #428bca;
+  color: white;
+  margin: 0;
+  border: 1px solid white;
+}
+.panel{
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.user-story-panel{
+  border: 1px solid lightsteelblue;
+  margin: 0;
+  padding: 0;
+  /*display: none;*/
+}
+.story-selected{
+  background-color: #89a0a1;
+}
+.story-selected > a{
+  color: white;
+}
+.user-story-link{
+  display: block;
+  /*border: 1px solid red;*/
+  text-decoration: none!important;
+  font-weight: bold;
+  padding: 0.8em 15px;
+}
+.user-story-link:hover{
+  background-color: #6E92A1;
+  color: white;
+}
+//Titulos de las tareas
+.task-title{
+  color: #730E15;
+  font-weight: bold;
+}
+//Botones circulares en tareas
+
+.edit-task, .destroy-task{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+//La pagina de bienvenida
+.welcome-title{
+  text-align: center;
+  padding: 25px 0 25px 0;
+  color: white;
+  background-color: #6E92A1;
+  font-size: 2em;
+}
+.first-link{
+
+  display: block;
+  text-align: center;
+  padding: 25px 0 25px 0;
+  color: white;
+  background-color: #6E92A1;
+}

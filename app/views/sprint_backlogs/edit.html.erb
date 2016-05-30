@@ -1,0 +1,38 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li><%= link_to 'Product Backlog', product_user_stories_path(@product) %></li>
+    <li class="active">Sprints</li>
+  </ol>
+  <%= form_for [@product,@sprint_backlog] do |f| %>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description  %>
+            <%= f.text_area :description, class: 'form-control', rows: '8' %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <% @user_stories.each do |user_story| %>
+              <div class="checkbox">
+                <% if user_story.sprint_backlog_id == @sprint_backlog.id %>
+                  <%= check_box_tag(user_story.id, '1',true) %>
+                  <%= label_tag(user_story.title) %>
+                <% else %>
+                    <%= check_box_tag(user_story.id) %>
+                    <%= label_tag(user_story.title) %>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= f.submit %>
+  <% end %>
+  <%= link_to 'Mostrar', product_sprint_backlog_path(@product,@sprint_backlog) %> |
+  <%= link_to 'Lista de sprints', product_sprint_backlogs_path(@product) 	 %>
+</div>

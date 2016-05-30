@@ -1,0 +1,28 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li class="active">Product Backlog</li>
+  </ol>
+  <h1>PRODUCT BACKLOG</h1>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>HISTORIAS DE USUARIO</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @user_stories.each do |user_story| %>
+        <tr>
+          <td><%= user_story.title %></td>
+          <td><%= link_to 'Mostrar', product_user_story_path(@product.id, user_story.id) %></td>
+          <td><%= link_to 'Editar', edit_product_user_story_path(@product.id, user_story.id) %></td>
+          <td><%= link_to 'Eliminar',  product_user_story_path(@product.id, user_story.id), method: :delete, data: {confirm: 'Esta seguro?'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Nueva historia', new_product_user_story_path %> |
+  <%= link_to 'Sprints', product_sprint_backlogs_path(@product.id) %>
+</div>

@@ -10,67 +10,308 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>1126</introspection-state-number>
-        <introspection-timestamp>2016-05-25.18:21:54.448</introspection-timestamp>
+        <introspection-state-number>1955</introspection-state-number>
+        <introspection-timestamp>2016-05-30.09:18:28.412</introspection-timestamp>
       </schema>
-      <sequence id="3" parent="2" name="user_stories_id_seq">
+      <sequence id="3" parent="2" name="acceptances_id_seq">
+        <object-id>42422</object-id>
+        <state-number>1205</state-number>
+      </sequence>
+      <sequence id="4" parent="2" name="products_id_seq">
+        <object-id>42481</object-id>
+        <state-number>1919</state-number>
+      </sequence>
+      <sequence id="5" parent="2" name="sprint_backlogs_id_seq">
+        <object-id>42439</object-id>
+        <state-number>1215</state-number>
+      </sequence>
+      <sequence id="6" parent="2" name="tasks_id_seq">
+        <object-id>42463</object-id>
+        <state-number>1683</state-number>
+      </sequence>
+      <sequence id="7" parent="2" name="user_stories_id_seq">
         <object-id>42390</object-id>
         <state-number>1126</state-number>
       </sequence>
-      <table id="4" parent="2" name="schema_migrations">
+      <table id="8" parent="2" name="acceptances">
+        <object-id>42424</object-id>
+        <state-number>1205</state-number>
+      </table>
+      <table id="9" parent="2" name="products">
+        <object-id>42483</object-id>
+        <state-number>1955</state-number>
+      </table>
+      <table id="10" parent="2" name="schema_migrations">
         <object-id>42383</object-id>
         <state-number>1124</state-number>
       </table>
-      <table id="5" parent="2" name="user_stories">
-        <object-id>42392</object-id>
-        <state-number>1126</state-number>
+      <table id="11" parent="2" name="sprint_backlogs">
+        <object-id>42441</object-id>
+        <state-number>1955</state-number>
       </table>
-      <column id="6" parent="4" name="version">
+      <table id="12" parent="2" name="tasks">
+        <object-id>42465</object-id>
+        <state-number>1683</state-number>
+      </table>
+      <table id="13" parent="2" name="user_stories">
+        <object-id>42392</object-id>
+        <state-number>1922</state-number>
+      </table>
+      <column id="14" parent="8" name="id">
+        <state-number>1205</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;acceptances_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="15" parent="8" name="criterion">
+        <state-number>1205</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="16" parent="8" name="user_story_id">
+        <state-number>1205</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="17" parent="8" name="created_at">
+        <state-number>1205</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="18" parent="8" name="updated_at">
+        <state-number>1205</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="19" parent="8" name="acceptances_pkey">
+        <object-id>42431</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="20" parent="8" name="index_acceptances_on_user_story_id">
+        <object-id>42433</object-id>
+        <columns>user_story_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="21" parent="8" name="acceptances_pkey">
+        <columns>id</columns>
+        <underlying-index>acceptances_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="22" parent="8" name="fk_rails_e1656492c6">
+        <columns>user_story_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="23" parent="9" name="id">
+        <state-number>1919</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;products_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="24" parent="9" name="name">
+        <state-number>1919</state-number>
+        <data-type>varchar</data-type>
+      </column>
+      <column id="25" parent="9" name="description">
+        <state-number>1919</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="26" parent="9" name="created_at">
+        <state-number>1919</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="27" parent="9" name="updated_at">
+        <state-number>1919</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="28" parent="9" name="products_pkey">
+        <object-id>42490</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="29" parent="9" name="products_pkey">
+        <columns>id</columns>
+        <underlying-index>products_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="30" parent="10" name="version">
         <state-number>1124</state-number>
         <mandatory>1</mandatory>
         <data-type>varchar</data-type>
       </column>
-      <index id="7" parent="4" name="unique_schema_migrations">
+      <index id="31" parent="10" name="unique_schema_migrations">
         <object-id>42389</object-id>
         <columns>version</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <column id="8" parent="5" name="id">
+      <column id="32" parent="11" name="id">
+        <state-number>1215</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;sprint_backlogs_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="33" parent="11" name="title">
+        <state-number>1215</state-number>
+        <data-type>varchar</data-type>
+      </column>
+      <column id="34" parent="11" name="description">
+        <state-number>1215</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="35" parent="11" name="created_at">
+        <state-number>1215</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="36" parent="11" name="updated_at">
+        <state-number>1215</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="37" parent="11" name="product_id">
+        <state-number>1955</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="38" parent="11" name="sprint_backlogs_pkey">
+        <object-id>42448</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="39" parent="11" name="index_sprint_backlogs_on_product_id">
+        <object-id>42498</object-id>
+        <columns>product_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="40" parent="11" name="sprint_backlogs_pkey">
+        <columns>id</columns>
+        <underlying-index>sprint_backlogs_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="41" parent="11" name="fk_rails_b8cb5cff02">
+        <columns>product_id</columns>
+        <ref-key>~.products.products_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="42" parent="12" name="id">
+        <state-number>1683</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;tasks_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="43" parent="12" name="title">
+        <state-number>1683</state-number>
+        <data-type>varchar</data-type>
+      </column>
+      <column id="44" parent="12" name="task">
+        <state-number>1683</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="45" parent="12" name="user_story_id">
+        <state-number>1683</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="46" parent="12" name="created_at">
+        <state-number>1683</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="47" parent="12" name="updated_at">
+        <state-number>1683</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="48" parent="12" name="tasks_pkey">
+        <object-id>42472</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="49" parent="12" name="index_tasks_on_user_story_id">
+        <object-id>42474</object-id>
+        <columns>user_story_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="50" parent="12" name="tasks_pkey">
+        <columns>id</columns>
+        <underlying-index>tasks_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="51" parent="12" name="fk_rails_f0582eadda">
+        <columns>user_story_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="52" parent="13" name="id">
         <state-number>1126</state-number>
         <mandatory>1</mandatory>
         <data-type>integer</data-type>
         <default-expression>nextval(&apos;user_stories_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="9" parent="5" name="title">
+      <column id="53" parent="13" name="title">
         <state-number>1126</state-number>
         <data-type>varchar</data-type>
       </column>
-      <column id="10" parent="5" name="content">
+      <column id="54" parent="13" name="content">
         <state-number>1126</state-number>
         <data-type>text</data-type>
       </column>
-      <column id="11" parent="5" name="created_at">
+      <column id="55" parent="13" name="created_at">
         <state-number>1126</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
       </column>
-      <column id="12" parent="5" name="updated_at">
+      <column id="56" parent="13" name="updated_at">
         <state-number>1126</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
       </column>
-      <index id="13" parent="5" name="user_stories_pkey">
+      <column id="57" parent="13" name="sprint_backlog_id">
+        <state-number>1536</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="58" parent="13" name="product_id">
+        <state-number>1922</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="59" parent="13" name="user_stories_pkey">
         <object-id>42399</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="14" parent="5" name="user_stories_pkey">
+      <index id="60" parent="13" name="index_user_stories_on_sprint_backlog_id">
+        <object-id>42457</object-id>
+        <columns>sprint_backlog_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="61" parent="13" name="index_user_stories_on_product_id">
+        <object-id>42492</object-id>
+        <columns>product_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="62" parent="13" name="user_stories_pkey">
         <columns>id</columns>
         <underlying-index>user_stories_pkey</underlying-index>
         <primary>1</primary>
       </key>
+      <foreign-key id="63" parent="13" name="fk_rails_65ccaede22">
+        <columns>sprint_backlog_id</columns>
+        <ref-key>~.sprint_backlogs.sprint_backlogs_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="64" parent="13" name="fk_rails_1e22c27f83">
+        <columns>product_id</columns>
+        <ref-key>~.products.products_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
     </database-model>
   </data-source>
 </component>

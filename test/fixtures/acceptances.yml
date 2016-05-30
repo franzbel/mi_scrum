@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  criterion: MyText
+  user_story_id: 
+
+two:
+  criterion: MyText
+  user_story_id: 

@@ -1,0 +1,2 @@
+$( ".task-<%= @task.id %>" ).replaceWith( "<%= escape_javascript(render @task) %>" );
+//$( "<%= escape_javascript(render @task) %>" ).appendTo( ".task-<%= @task.id %>" );

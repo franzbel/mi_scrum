@@ -1,0 +1,63 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li><%= link_to 'Product Backlog', product_user_stories_path(@product) %></li>
+    <li><%= link_to 'Sprints', product_sprint_backlogs_path(@product) %></li>
+    <li class="active">Desarrollo</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="panel">
+        <% @sprints.each do |sprint| %>
+            <p class="sprint-panel"><%= sprint.title %></p>
+            <% sprint.user_stories.each do |user_story| %>
+                <p class="user-story-panel" id="user-story-<%= user_story.id %>"><%= link_to user_story.title, information_development_path(user_story), class: 'user-story-link' %></p>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#descripcion">Descripcion</a></li>
+        <li><a data-toggle="tab" href="#criterios">Criterios de aceptación</a></li>
+        <li><a data-toggle="tab" href="#tareas">Tareas</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="descripcion" class="tab-pane fade in active">
+          <p class="user-story-title"><%= @user_story.title %></p>
+          <%= highlight(simple_format(@user_story.content, class: 'user-story'),/Como|Quiero|Para/) %>
+        </div>
+        <div id="criterios" class="tab-pane fade">
+          <p class="user-story-criteria">CRITERIOS DE ACEPTACIÓN</p>
+          <% @user_story.acceptances.each_with_index do |acceptance, index| %>
+              <p><%= index +1 %>.-<%= acceptance.criterion %></p>
+          <% end %>
+        </div>
+        <div id="tareas" class="tab-pane fade">
+
+          <div class="row"><div class="new-task"><%= render @tasks %></div></div>
+          <%= form_for(Task.new, remote: true) do |f| %>
+            <div class="form-group">
+              <%= f.label :title %>
+              <%= f.text_field :title, class:'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :task %>
+              <%= f.text_area :task, class:'form-control', rows: '9' %>
+            </div>
+            <%= f.hidden_field :user_story_id, value: @user_story.id %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+      $('#user-story-<%= @user_story.id %>').addClass('story-selected');
+  });
+</script>
+
+

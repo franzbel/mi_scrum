@@ -1,0 +1,29 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li><%= link_to 'Product Backlog', product_user_stories_path(@product) %></li>
+    <li class="active">Sprints</li>
+  </ol>
+  <h1>SPRINTS</h1>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>SPRINT BACKLOG</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @sprints.each do |sprint| %>
+        <tr>
+          <td><%= sprint.title %></td>
+          <td><%= link_to 'Mostrar', product_sprint_backlog_path(@product, sprint) %></td>
+          <td><%= link_to 'Editar', edit_product_sprint_backlog_path(@product, sprint) %></td>
+          <td><%= link_to 'Eliminar', product_sprint_backlog_path(@product, sprint), method: :delete, data: {confirm: 'Esta seguro'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Nuevo Sprint', new_product_sprint_backlog_path(@product.id) %> |
+  <%= link_to 'Desarrollo', information_development_path(@product.sprint_backlogs.first.user_stories.last) %>
+</div>

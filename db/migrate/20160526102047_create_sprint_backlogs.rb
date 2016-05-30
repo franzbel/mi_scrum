@@ -1,0 +1,10 @@
+class CreateSprintBacklogs < ActiveRecord::Migration
+  def change
+    create_table :sprint_backlogs do |t|
+      t.string :title
+      t.text :description
+
+      t.timestamps null: false
+    end
+  end
+end

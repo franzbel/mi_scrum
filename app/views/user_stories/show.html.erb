@@ -1,0 +1,32 @@
+<style>
+  .user-story{
+    text-align: justify;
+  }
+  .user-story-title{
+    text-align: center;
+  }
+  mark{
+    color: green;
+  }
+</style>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to 'Productos', products_path %></li>
+    <li class="active">Product Backlog</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="user-story-title"><%= @user_story.title %></p>
+      <%= highlight(simple_format(@user_story.content, class: 'user-story'),/Como|Quiero|Para/) %>
+    </div>
+    <div class="col-md-6">
+      <p>CRITERIOS DE ACEPTACIÓN</p>
+      <% @user_story.acceptances.each_with_index do |acceptance, index| %>
+        <p><%= index + 1 %>.-<%= acceptance.criterion %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to 'Editar', edit_product_user_story_path(@product.id,@user_story.id) %> |
+  <%= link_to 'Lista de historias',  product_user_stories_path(@product.id) %>
+</div>

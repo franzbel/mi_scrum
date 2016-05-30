@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'coderay', '~> 1.1', '>= 1.1.1'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
