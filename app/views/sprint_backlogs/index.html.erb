@@ -25,5 +25,5 @@
     </tbody>
   </table>
   <%= link_to 'Nuevo Sprint', new_product_sprint_backlog_path(@product.id) %> |
-  <%= link_to 'Desarrollo', information_development_path(@product.sprint_backlogs.first.user_stories.last) %>
+  <%= link_to 'Desarrollo', information_development_path(@product.user_stories.last) %>
 </div>

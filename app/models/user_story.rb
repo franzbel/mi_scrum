@@ -1,6 +1,6 @@
 class UserStory < ActiveRecord::Base
   has_many :acceptances, dependent: :destroy
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   belongs_to :product
   accepts_nested_attributes_for :acceptances, reject_if: lambda {|attributes| attributes['criterion'].blank?}
   belongs_to :sprint_backlog
